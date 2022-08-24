@@ -1,125 +1,138 @@
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-  }
-  
-  body {
-	min-width: 320px;
-	min-height: 100vh;
-	font-family: 'Gloria Hallelujah', sans-serif;
-	font-size: 20px;
-	color: #fff;
-	text-align: center;
-	background-image: url(assets/home.png);
-	background-size: cover;
-	overflow: hidden;
-  }
-  
-  .ancients {
-	width: 100%;
-	height: 280px;
-	margin: 10px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-  }
-  #azathoth {
-	background-image: url(assets/Ancients/Azathoth.png);
-	background-size: cover;
-  }
-  #cthulthu {
-	background-image: url(assets/Ancients/Cthulthu.png);
-	background-size: cover;
-  }
-  #iogSothoth {
-	background-image: url(assets/Ancients/IogSothoth.png);
-	background-size: cover;
-  }
-  #shubNiggurath {
-	background-image: url(assets/Ancients/ShubNiggurath.png);
-	background-size: cover;
-  }
-  
-  main {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-  }
-  
-  .game {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	width: 100%;
-	height: 280px;
-	margin: 10px;
-  
-  }.mix-wraper {
-	  display: flex;
-	  align-items: center;
-  }
-  .mix-cards {
-	  width: 100px;
-	  height: 100px;
-	  border-radius: 20px;
-	  background-image: url(assets/undo.png);
-	  background-size: contain;
-	  background-position: center center;
-	  background-repeat: no-repeat;
-	  background-color: transparent;
-	  border: 0;
-	  outline: 0;
-	  cursor: pointer;
-  }
-  
-  .twocards {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	gap: 20px;
-  }
-  
-  .stages {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-  }
-  .card {
-	width: 215px;
-	height: 280px;
-  }
-  .stage-wraper {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	gap: 10px;
-  }
-  
-  .cards {
-	width: 40px;
-	height: 40px;
-	border-radius: 10px;
-  }
-  .color-green {
-	background-color: #69f542;
-  }
-  
-  .color-red {
-	background-color: #991128;
-  }
-  
-  .color-blue {
-	background-color: #113199;
-  }
-  
-  #card-close {
-	background-image: url(assets/cardBackground.jpeg);
-	background-size: cover;
-  }
-  #card-open {
-	  border: 2px dotted;
-	  background-size: cover;
-  }
-  
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Gloria Hallelujah', sans-serif;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  background-image: url(assets/home.png);
+  background-size: cover;
+  overflow: hidden;
+}
+
+.ancients {
+  width: 100%;
+  height: 280px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#azathoth {
+  background-image: url(assets/Ancients/Azathoth.png);
+}
+
+#cthulhu {
+  background-image: url(assets/Ancients/Cthulthu.png);
+}
+#iogSothoth {
+  background-image: url(assets/Ancients/IogSothoth.png);
+}
+#shubNiggurath {
+  background-image: url(assets/Ancients/ShubNiggurath.png);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 280px;
+  margin: 10px;
+}
+.mix-wraper {
+  display: flex;
+  align-items: center;
+}
+.mix-cards {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  background-image: url(assets/undo.png);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.twocards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.stages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.card {
+  width: 215px;
+  height: 280px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.playcard {
+  width: 170px;
+  height: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.stage-wraper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cards {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+.color-green {
+  background-color: #69f542;
+}
+
+.color-brown {
+  background-color: brown;
+}
+
+.color-blue {
+  background-color: #113199;
+}
+
+#card-close {
+  border: 1px dotted;
+  background-size: cover;
+  transition: 1s;
+  cursor: pointer;
+}
+#card-open {
+  border: 1px dotted;
+  background-size: contain;
+  transition: 1s;
+  cursor: help;
+}
+#card-open:hover {
+  transform: scale(1.5);
+  border: none;
+}

@@ -2,6 +2,7 @@ import greenCardsData from './data/mythicCards/green/index.js';
 import brownCardsData from './data/mythicCards/brown/index.js';
 import blueCardsData from './data/mythicCards/blue/index.js';
 import ancientsData from './data/ancients.js';
+import ancients from './assets/Ancients/index.js';
 
 function getRandomNum(max) {
   let min = 0;
@@ -16,6 +17,7 @@ function getCards(god) {
     if (value.id === god) {
       godNumber = i;
     }
+
   });
   let greenArray = [];
   let brownArray = [];
@@ -137,13 +139,65 @@ function getCards(god) {
     mainArray = mainArray.filter((e) => e.id != playCard.id);
   }
 
-  return [
+  closeCard.style.backgroundImage = 'url(assets/mythicCardBackground.png)';
+	return [
     firstStageArray.sort(() => Math.random() - 0.5),
     secondStageArray.sort(() => Math.random() - 0.5),
     thirdStageArray.sort(() => Math.random() - 0.5),
   ];
-
 }
 
-console.log(getCards('iogSothoth'));
+
+
+const openCard = document.querySelector('#card-open');
+const closeCard = document.querySelector('#card-close');
+const ancientsCard = document.querySelector('.ancients');
+
+ancientsCard.addEventListener('click', (event) => {
+	showCards(event.target.id);
+})
+
+function showCards(god) {
+	let stagesArray = getCards(god)
+	document.getElementById('1b').innerHTML = stagesArray[0].filter(e => e.color === 'blue').length
+	document.getElementById('1g').innerHTML = stagesArray[0].filter(e => e.color === 'green').length
+	document.getElementById('1r').innerHTML = stagesArray[0].filter(e => e.color ==='brown').length
+	document.getElementById('2b').innerHTML = stagesArray[1].filter(e => e.color === 'blue').length
+	document.getElementById('2g').innerHTML = stagesArray[1].filter(e => e.color === 'green').length
+	document.getElementById('2r').innerHTML = stagesArray[1].filter(e => e.color ==='brown').length
+	document.getElementById('3b').innerHTML = stagesArray[2].filter(e => e.color === 'blue').length
+	document.getElementById('3g').innerHTML = stagesArray[2].filter(e => e.color === 'green').length
+	document.getElementById('3r').innerHTML = stagesArray[2].filter(e => e.color ==='brown').length
+	let stage = stagesArray[0];
+	closeCard.addEventListener('click', () => {
+		if (stagesArray[0].length === 0) {
+			stage = stagesArray[1];
+		}
+		if (stagesArray[1].length === 0) {
+			stage = stagesArray[2];
+		}
+		if (stagesArray[2].length === 1) {
+			closeCard.style.backgroundImage = '';
+		}
+		if (stagesArray[2].length === 0) {
+			openCard.style.backgroundImage = '';
+		}
+		let card = stage.pop();
+		openCard.style.backgroundImage = card.cardFace;
+		document.getElementById('1b').innerHTML = stagesArray[0].filter(e => e.color === 'blue').length
+		document.getElementById('1g').innerHTML = stagesArray[0].filter(e => e.color === 'green').length
+		document.getElementById('1r').innerHTML = stagesArray[0].filter(e => e.color ==='brown').length
+		document.getElementById('2b').innerHTML = stagesArray[1].filter(e => e.color === 'blue').length
+		document.getElementById('2g').innerHTML = stagesArray[1].filter(e => e.color === 'green').length
+		document.getElementById('2r').innerHTML = stagesArray[1].filter(e => e.color ==='brown').length
+		document.getElementById('3b').innerHTML = stagesArray[2].filter(e => e.color === 'blue').length
+		document.getElementById('3g').innerHTML = stagesArray[2].filter(e => e.color === 'green').length
+		document.getElementById('3r').innerHTML = stagesArray[2].filter(e => e.color ==='brown').length
+	})
+	}
+
+
+
+
+
 
