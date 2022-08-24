@@ -119,6 +119,7 @@
   }
   #card-open {
 	  border: 2px dotted;
+	  background-size: cover;
   }
   
   
