@@ -70,6 +70,10 @@ main {
   cursor: pointer;
 }
 
+.active {
+	border: solid 5px indigo;
+}
+
 .twocards {
   display: flex;
   flex-direction: row;
@@ -136,3 +140,5 @@ main {
   transform: scale(1.5);
   border: none;
 }
+
+

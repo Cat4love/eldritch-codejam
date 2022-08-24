@@ -140,6 +140,7 @@ function getCards(god) {
   }
 
   closeCard.style.backgroundImage = 'url(assets/mythicCardBackground.png)';
+
 	return [
     firstStageArray.sort(() => Math.random() - 0.5),
     secondStageArray.sort(() => Math.random() - 0.5),
@@ -152,9 +153,32 @@ function getCards(god) {
 const openCard = document.querySelector('#card-open');
 const closeCard = document.querySelector('#card-close');
 const ancientsCard = document.querySelector('.ancients');
+const shuffle = document.getElementById('mix');
+
+
+
+
+let godName = '';
 
 ancientsCard.addEventListener('click', (event) => {
-	showCards(event.target.id);
+	if (event.target.id){
+		document.querySelectorAll('.card').forEach(element => {
+			element.classList.remove('active');
+		})
+	}
+	if (event.target.id){
+		showCards(event.target.id);
+		event.target.classList.add('active');
+		godName = event.target.id;
+		openCard.style.backgroundImage = '';
+	}
+})
+
+shuffle.addEventListener('click', () =>{
+	if (godName != ''){
+		openCard.style.backgroundImage = ''
+		showCards(godName);
+	}
 })
 
 function showCards(god) {
@@ -170,19 +194,23 @@ function showCards(god) {
 	document.getElementById('3r').innerHTML = stagesArray[2].filter(e => e.color ==='brown').length
 	let stage = stagesArray[0];
 	closeCard.addEventListener('click', () => {
+		let card = '';
 		if (stagesArray[0].length === 0) {
 			stage = stagesArray[1];
 		}
 		if (stagesArray[1].length === 0) {
 			stage = stagesArray[2];
 		}
-		if (stagesArray[2].length === 1) {
+		if (stagesArray[2].length > 1) {
+			closeCard.style.backgroundImage = 'url(assets/mythicCardBackground.png)';
+		} else {
 			closeCard.style.backgroundImage = '';
 		}
-		if (stagesArray[2].length === 0) {
+		if (stagesArray[2].length !== 0) {
+			card = stage.pop();
+		} else {
 			openCard.style.backgroundImage = '';
 		}
-		let card = stage.pop();
 		openCard.style.backgroundImage = card.cardFace;
 		document.getElementById('1b').innerHTML = stagesArray[0].filter(e => e.color === 'blue').length
 		document.getElementById('1g').innerHTML = stagesArray[0].filter(e => e.color === 'green').length
@@ -193,6 +221,7 @@ function showCards(god) {
 		document.getElementById('3b').innerHTML = stagesArray[2].filter(e => e.color === 'blue').length
 		document.getElementById('3g').innerHTML = stagesArray[2].filter(e => e.color === 'green').length
 		document.getElementById('3r').innerHTML = stagesArray[2].filter(e => e.color ==='brown').length
+	
 	})
 	}
 
