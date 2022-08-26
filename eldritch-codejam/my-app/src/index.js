@@ -4,6 +4,8 @@ import blueCardsData from './data/mythicCards/blue/index.js';
 import ancientsData from './data/ancients.js';
 import ancients from './assets/Ancients/index.js';
 
+
+
 function getRandomNum(max) {
   let min = 0;
   max = Math.floor(max);
@@ -32,8 +34,36 @@ function getCards(god) {
   ) {
     let greenCard = greenCardsData[getRandomNum(17)];
     if (!greenArray.includes(greenCard)) {
-      greenArray.push(greenCard);
-    }
+		if (difLevel.value === 'very-low'){
+			if(greenCard.difficulty === 'easy'){
+				greenArray.push(greenCard);
+			}
+			if(greenCard.difficulty === 'normal' && greenArray.length >= 5){
+				greenArray.push(greenCard);
+			}
+		}
+		if (difLevel.value === 'low'){
+			if(greenCard.difficulty !== 'hard'){
+				greenArray.push(greenCard);
+			}
+		}
+		if (difLevel.value === 'medium'){
+			greenArray.push(greenCard);
+		}
+		if (difLevel.value === 'high'){
+			if(greenCard.difficulty !== 'easy'){
+				greenArray.push(greenCard);
+			}
+		}
+		if (difLevel.value === 'very-high'){
+			if(greenCard.difficulty === 'hard'){
+				greenArray.push(greenCard);
+			}
+			if(greenCard.difficulty === 'normal' && greenArray.length >= 5){
+				greenArray.push(greenCard);
+			}
+		}
+	}
   }
   while (
     brownArray.length <
@@ -44,9 +74,37 @@ function getCards(god) {
     ])
   ) {
     let brownCard = brownCardsData[getRandomNum(20)];
-    if (!brownArray.includes(brownCard)) {
-      brownArray.push(brownCard);
-    }
+	if (!brownArray.includes(brownCard)) {
+		if (difLevel.value === 'very-low'){
+			if(brownCard.difficulty === 'easy'){
+				brownArray.push(brownCard);
+			}
+			if(brownCard.difficulty === 'normal' && brownArray.length >= 5){
+				brownArray.push(brownCard);
+			}
+		}
+		if (difLevel.value === 'low'){
+			if(brownCard.difficulty !== 'hard'){
+				brownArray.push(brownCard);
+			}
+		}
+		if (difLevel.value === 'medium'){
+			brownArray.push(brownCard);
+		}
+		if (difLevel.value === 'high'){
+			if(brownCard.difficulty !== 'easy'){
+				brownArray.push(brownCard);
+			}
+		}
+		if (difLevel.value === 'very-high'){
+			if(brownCard.difficulty === 'hard'){
+				brownArray.push(brownCard);
+			}
+			if(brownCard.difficulty === 'normal' && brownArray.length >= 5){
+				brownArray.push(brownCard);
+			}
+		}
+	}
   }
   while (
     blueArray.length <
@@ -58,9 +116,39 @@ function getCards(god) {
   ) {
     let blueCard = blueCardsData[getRandomNum(11)];
     if (!blueArray.includes(blueCard)) {
-      blueArray.push(blueCard);
-    }
+		if (difLevel.value === 'very-low'){
+			if(blueCard.difficulty === 'easy'){
+				blueArray.push(blueCard);
+			}
+			if(blueCard.difficulty === 'normal' && blueArray.length >= 4){
+				blueArray.push(blueCard);
+			}
+		}
+		if (difLevel.value === 'low'){
+			if(blueCard.difficulty !== 'hard'){
+				blueArray.push(blueCard);
+			}
+		}
+		if (difLevel.value === 'medium'){
+			blueArray.push(blueCard);
+		}
+		if (difLevel.value === 'high'){
+			if(blueCard.difficulty !== 'easy'){
+				blueArray.push(blueCard);
+			}
+		}
+		if (difLevel.value === 'very-high'){
+			if(blueCard.difficulty === 'hard'){
+				blueArray.push(blueCard);
+			}
+			if(blueCard.difficulty === 'normal' && blueArray.length >= 5){
+				blueArray.push(blueCard);
+			}
+		}
+	}
   }
+
+
   let mainArray = [...greenArray, ...brownArray, ...blueArray];
 
   let firstStageArray = [];
@@ -149,12 +237,19 @@ function getCards(god) {
 }
 
 
-
+const difLevel = document.getElementById('difficulty-level');
 const openCard = document.querySelector('#card-open');
 const closeCard = document.querySelector('#card-close');
 const ancientsCard = document.querySelector('.ancients');
 const shuffle = document.getElementById('mix');
 
+
+difLevel.addEventListener('change', () => {
+	if (godName != ''){
+		openCard.style.backgroundImage = ''
+		showCards(godName);
+	}
+})
 
 
 
@@ -181,8 +276,13 @@ shuffle.addEventListener('click', () =>{
 	}
 })
 
+
 function showCards(god) {
 	let stagesArray = getCards(god)
+	let stage = stagesArray[0];
+	console.log(god)
+	console.log(stagesArray)
+	console.log(stage)
 	document.getElementById('1b').innerHTML = stagesArray[0].filter(e => e.color === 'blue').length
 	document.getElementById('1g').innerHTML = stagesArray[0].filter(e => e.color === 'green').length
 	document.getElementById('1r').innerHTML = stagesArray[0].filter(e => e.color ==='brown').length
@@ -192,25 +292,30 @@ function showCards(god) {
 	document.getElementById('3b').innerHTML = stagesArray[2].filter(e => e.color === 'blue').length
 	document.getElementById('3g').innerHTML = stagesArray[2].filter(e => e.color === 'green').length
 	document.getElementById('3r').innerHTML = stagesArray[2].filter(e => e.color ==='brown').length
-	let stage = stagesArray[0];
 	closeCard.addEventListener('click', () => {
 		let card = '';
 		if (stagesArray[0].length === 0) {
 			stage = stagesArray[1];
+			console.log('1')
 		}
 		if (stagesArray[1].length === 0) {
 			stage = stagesArray[2];
+			console.log('2')
 		}
 		if (stagesArray[2].length > 1) {
 			closeCard.style.backgroundImage = 'url(assets/mythicCardBackground.png)';
 		} else {
 			closeCard.style.backgroundImage = '';
 		}
-		if (stagesArray[2].length !== 0) {
+		if (stagesArray[2].length > 0) {
 			card = stage.pop();
+			console.log('card')
 		} else {
 			openCard.style.backgroundImage = '';
+			console.log('end')
 		}
+		console.log(card.color)
+		console.log(card.difficulty)
 		openCard.style.backgroundImage = card.cardFace;
 		document.getElementById('1b').innerHTML = stagesArray[0].filter(e => e.color === 'blue').length
 		document.getElementById('1g').innerHTML = stagesArray[0].filter(e => e.color === 'green').length
@@ -221,7 +326,6 @@ function showCards(god) {
 		document.getElementById('3b').innerHTML = stagesArray[2].filter(e => e.color === 'blue').length
 		document.getElementById('3g').innerHTML = stagesArray[2].filter(e => e.color === 'green').length
 		document.getElementById('3r').innerHTML = stagesArray[2].filter(e => e.color ==='brown').length
-	
 	})
 	}
 
@@ -230,3 +334,21 @@ function showCards(god) {
 
 
 
+	// closeCard.addEventListener('click', () => {
+	// 	let card = '';
+	// 	if (stagesArray[0].length === 0) {
+	// 		stage = stagesArray[1];
+	// 	}
+	// 	if (stagesArray[1].length === 0) {
+	// 		stage = stagesArray[2];
+	// 	}
+	// 	if (stagesArray[2].length > 1) {
+	// 		closeCard.style.backgroundImage = 'url(assets/mythicCardBackground.png)';
+	// 	} else {
+	// 		closeCard.style.backgroundImage = '';
+	// 	}
+	// 	if (stagesArray[2].length !== 0) {
+	// 		card = stage.pop();
+	// 	} else {
+	// 		openCard.style.backgroundImage = '';
+	// 	}
