@@ -5,12 +5,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css" />
-	<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
 	<title>Сhoose your destiny</title>
 </head>
 <body>
 	<header class="header">
-		<span>Select an ancient:</span>
+		<span>Выберите древнего бога:</span>
 		<div class="ancients">
 			<div class="card" id="azathoth"></div>
 			<div class="card" id="cthulhu"></div>
@@ -20,13 +20,13 @@
 	</header>
 	<main class="main">
 		<div class="difficulties">
-			<span>Select the game difficulty:</span>
+			<span>Выберите уровень сложности:</span>
 			<select	id="difficulty-level">
-				<option value="very-low">Very low</option>
-				<option value="low">Low</option>
-				<option selected value="medium">Medium</option>
-				<option value="high">High</option>
-				<option value="very-high">Very High</option>
+				<option value="very-low">Очень-лёгкий</option>
+				<option value="low">Легкий</option>
+				<option selected value="medium">Средний</option>
+				<option value="high">Высокий</option>
+				<option value="very-high">Очень высокий</option>
 			</select>
 		</div>
 		<div class="game">
@@ -34,21 +34,23 @@
 				<div id="card-open" class="playcard"></div>
 				<div id="card-close" class="playcard"></div>
 			</div>
-			<div class="mix-wraper"><button id="mix" class="mix-cards"></button></div>
+			<div class="mix-wraper">
+				<span>Перемешать карты:</span>
+				<button id="mix" class="mix-cards"></button></div>
 			<div class="stages">
-				<span>Stage One:</span>
+				<span>Первая стадия:</span>
 				<div class="stage-1 stage-wraper">
 					<div class="cards color-green" id="1g"></div>
 					<div class="cards color-brown" id="1r"></div>
 					<div class="cards color-blue" id="1b"></div>
 				</div>
-				<span>Stage Two:</span>
+				<span>Вторая стадия:</span>
 				<div class="stage-2 stage-wraper">
 					<div class="cards color-green"id="2g"></div>
 					<div class="cards color-brown"id="2r"></div>
 					<div class="cards color-blue"id="2b"></div>
 				</div>
-				<span>Stage Three:</span>
+				<span>Третья стадия:</span>
 				<div class="stage-3 stage-wraper">
 					<div class="cards color-green"id="3g"></div>
 					<div class="cards color-brown"id="3r"></div>

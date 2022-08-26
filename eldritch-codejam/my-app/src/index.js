@@ -150,6 +150,7 @@ function getCards(god) {
   let firstStageArray = [];
   let secondStageArray = [];
   let thirdStageArray = [];
+
   while (
     firstStageArray.filter((e) => e.color === 'green').length <
     ancientsData[godNumber].firstStage.greenCards
@@ -271,7 +272,7 @@ let stagesArray = [];
 function showCards(god) {
   count = 0;
   stagesArray = getCards(god);
-  closeCard.style.backgroundImage = 'url(assets/mythicCardBackground.png)';
+  closeCard.style.backgroundImage = 'url(assets/shirt.jpeg)';
   document.getElementById('1b').innerHTML = stagesArray[0].filter(
     (e) => e.color === 'blue'
   ).length;
@@ -311,7 +312,7 @@ closeCard.addEventListener('click', () => {
     openCard.style.backgroundImage = '';
   }
   if (stagesArray[2].length > 0) {
-    closeCard.style.backgroundImage = 'url(assets/mythicCardBackground.png)';
+    closeCard.style.backgroundImage = 'url(assets/shirt.jpeg';
   } else {
     closeCard.style.backgroundImage = '';
   }

@@ -5,15 +5,19 @@
 }
 
 body {
-  min-width: 320px;
+  width: 100vw;
   min-height: 100vh;
-  font-family: 'Gloria Hallelujah', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
   font-size: 20px;
-  color: #fff;
+  font-style: oblique;
   text-align: center;
-  background-image: url(assets/home.png);
+  background-image: url(assets/home.jpeg);
   background-size: cover;
-  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  color: white;
+  text-shadow: 0 0 20px indigo;
 }
 
 .ancients {
@@ -23,6 +27,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
 }
 #azathoth {
   background-image: url(assets/Ancients/Azathoth.png);
@@ -44,6 +50,10 @@ main {
   align-items: center;
 }
 
+.difficulties{
+  margin-bottom: 4vh;
+}
+
 .game {
   display: flex;
   flex-direction: row;
@@ -54,13 +64,16 @@ main {
 }
 .mix-wraper {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 .mix-cards {
   width: 100px;
   height: 100px;
   border-radius: 20px;
-  background-image: url(assets/undo.png);
+  background-image: url(assets/mix.png);
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -68,10 +81,25 @@ main {
   border: 0;
   outline: 0;
   cursor: pointer;
+  text-align: center;
+  word-wrap: break-word;
 }
 
+
+.mix-cards:hover {
+  transition: 1s;
+  filter: drop-shadow(0 0 20px indigo);
+}
+
+.mix-cards:active {
+  transform: scale(1.1);
+  transition: 0.5s;
+  
+}
+
+
 .active {
-	border: solid 5px indigo;
+	box-shadow:0 0 20px indigo;
 }
 
 .twocards {
@@ -91,6 +119,11 @@ main {
   height: 280px;
   background-size: cover;
   background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow:0 0 5px indigo;
 }
 
 .playcard {
@@ -108,12 +141,13 @@ main {
 }
 
 .cards {
+  text-align: center;
   width: 40px;
   height: 40px;
   border-radius: 10px;
 }
 .color-green {
-  background-color: #69f542;
+  background-color: #5CA847;
 }
 
 .color-brown {
@@ -125,19 +159,19 @@ main {
 }
 
 #card-close {
-  border: 1px dotted;
-  background-size: cover;
+  box-shadow:0 0 40px indigo;
+  background-size: contain;
   transition: 1s;
   cursor: pointer;
 }
 #card-open {
-  border: 1px dotted;
+  box-shadow:0 0 20px indigo;
   background-size: contain;
   transition: 1s;
   cursor: help;
 }
 #card-open:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
   border: none;
 }
 
