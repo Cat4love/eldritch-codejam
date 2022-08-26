@@ -18,6 +18,7 @@ body {
   overflow-x: hidden;
   color: white;
   text-shadow: 0 0 20px indigo;
+  opacity: 0.9;
 }
 
 .ancients {
@@ -83,6 +84,7 @@ main {
   cursor: pointer;
   text-align: center;
   word-wrap: break-word;
+  transition: 2s;
 }
 
 
@@ -92,8 +94,8 @@ main {
 }
 
 .mix-cards:active {
-  transform: scale(1.1);
-  transition: 0.5s;
+  transform: scale(1.2);
+  transition: 0.3s;
   
 }
 
@@ -120,10 +122,12 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
   cursor: pointer;
+  transition: 1s;
 }
 
 .card:hover {
-  box-shadow:0 0 5px indigo;
+  transform: scale(1.2);
+  transition: 1s;
 }
 
 .playcard {
@@ -147,15 +151,18 @@ main {
   border-radius: 10px;
 }
 .color-green {
-  background-color: #5CA847;
+  background-color: #3b5a1d;
+  opacity: 0.8;
 }
 
 .color-brown {
-  background-color: brown;
+  background-color: #a27300;
+  opacity: 0.8;
 }
 
 .color-blue {
-  background-color: #113199;
+  background-color: #39439c;
+  opacity: 0.8;
 }
 
 #card-close {
@@ -163,6 +170,7 @@ main {
   background-size: contain;
   transition: 1s;
   cursor: pointer;
+  
 }
 #card-open {
   box-shadow:0 0 20px indigo;
@@ -172,7 +180,7 @@ main {
 }
 #card-open:hover {
   transform: scale(1.2);
-  border: none;
+  transition: 1s;
 }
 
 
